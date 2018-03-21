@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello Vue</h1>
+    <hr>
+    <div id="app">
+        <p>{{newPrice}}</p>
+        <ul>
+            <li v-for="item in reserveNews">{{item.title}}-{{item.data}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var newsList=[
+            {title:"1234",data:'2017/12/12'},
+            {title:"2345",data:'2017/12/13'},
+            {title:"3456",data:'2017/12/13'},
+            {title:"4567",data:'2017/12/14'},
+        ];
+        var app=new Vue({
+            el:"#app",
+            data:{
+                price:100,
+                newsList:newsList
+            },
+            computed:{
+                newPrice:function(){
+                    return this.price="￥"+this.price+"元";
+                },
+                reserveNews:function(){
+                    return this.newsList.reverse();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
